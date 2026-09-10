@@ -1,0 +1,26 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: expense-assistant-mcp-server-spring-ai-example
+
+  ai:
+    mcp:
+      server:
+        name: expense-assistant-mcp
+        version: 1.0.0
+        protocol: STREAMABLE
+        type: SYNC
+
+        capabilities:
+          tool: true
+          resource: false
+          prompt: false
+          completion: false
+
+        instructions: >-
+          Provides the expense processing classification rules.
+
+        streamable-http:
+          mcp-endpoint: /mcp
