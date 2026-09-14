@@ -20,8 +20,9 @@ spring:
           completion: false
 
         instructions: >-
-          Provides the expense processing classification rules,
+          Provides expense processing workflows, classification rules,
           and classification knowledge.
+          Call get_expense_processing_workflow first when processing expenses.
 
         streamable-http:
           mcp-endpoint: /mcp
