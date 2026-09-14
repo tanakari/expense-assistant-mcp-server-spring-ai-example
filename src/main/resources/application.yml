@@ -20,7 +20,8 @@ spring:
           completion: false
 
         instructions: >-
-          Provides the expense processing classification rules.
+          Provides the expense processing classification rules,
+          and classification knowledge.
 
         streamable-http:
           mcp-endpoint: /mcp
