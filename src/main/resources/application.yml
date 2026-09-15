@@ -21,7 +21,7 @@ spring:
 
         instructions: >-
           Provides expense processing workflows, classification rules,
-          and classification knowledge.
+          classification knowledge, and expense application registration.
           Call get_expense_processing_workflow first when processing expenses.
 
         streamable-http:
