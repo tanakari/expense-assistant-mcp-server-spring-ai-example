@@ -95,8 +95,40 @@ MCP endpoint（Streamable HTTP）:
 http://localhost:8100/mcp
 ```
 
+### Docker Compose で起動
+
+Docker Engine と Docker Compose が必要です。Dockerfile は `target` 内のビルド済み JAR をコピーするため、先にプロジェクトのルートで JAR を作成します。
+
+```bash
+./mvnw clean package
+docker compose up --build -d
+```
+
+Windows（PowerShell）の場合:
+
+```powershell
+.\mvnw.cmd clean package
+docker compose up --build -d
+```
+
+Compose ではコンテナの `8100` 番ポートをホストのループバックアドレスの `8101` 番ポートに公開します。MCP クライアントには次の URL を設定します。
+
+```text
+http://localhost:8101/mcp
+```
+
+ログの確認と停止:
+
+```bash
+docker compose logs -f
+docker compose down
+```
+
+ソースを変更した場合は、JAR を再作成してから `docker compose up --build -d` を実行してください。
+
 ## ナレッジの保存
 
 ナレッジはSpring Data JPA経由でH2に保存します。
 現状は接続先を設定していないため、デフォルトのインメモリDBを使用し、アプリケーション終了時にデータは失われます。
+Docker Compose で起動した場合も、コンテナの停止や再起動でナレッジは失われます。
 再起動後も保持するには、ファイルDBへの接続設定と、テーブルを保持するスキーマ管理設定が必要です。

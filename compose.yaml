@@ -1,0 +1,8 @@
+services:
+  expense-assistant-mcp:
+    build:
+      context: .
+    container_name: expense-assistant-mcp
+    ports:
+      - "127.0.0.1:8101:8100"
+    restart: unless-stopped
