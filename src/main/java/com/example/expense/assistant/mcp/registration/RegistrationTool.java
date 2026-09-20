@@ -7,6 +7,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class RegistrationTool {
 
+    private final RegistrationService registrationService;
+
+    public RegistrationTool(RegistrationService registrationService) {
+        this.registrationService = registrationService;
+    }
+
     @McpTool(
             name = "register_expense",
             description = """
@@ -23,8 +29,17 @@ public class RegistrationTool {
             @McpToolParam(description = "合計金額。円単位の整数で指定してください。", required = true) int total,
             @McpToolParam(description = "税額。分からない場合は省略可能です。", required = false) Integer tax) {
 
+        Expense expense = registrationService.register(
+                date,
+                merchant,
+                description,
+                purpose,
+                expenseCategory,
+                total,
+                tax);
+
         return new RegistrationResponse(
-                "accepted",
-                "経費登録が完了しました。");
+                "経費登録が完了しました。",
+                expense);
     }
 }
