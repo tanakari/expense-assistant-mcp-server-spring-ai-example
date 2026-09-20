@@ -15,8 +15,9 @@ public class ProcessingWorkflowTool {
     @McpTool(
             name = "get_expense_processing_workflow",
             description = """
-                    経費科目の判定や経費処理を行うときに従うワークフローを取得します。
-                    経費処理を開始するときに最初に呼び出してください。
+                    経費科目の判定や経費処理で使用するワークフローを取得します。
+                    新しい領収書を受け取るたびに、ほかの経費処理Toolより先に呼び出してください。
+                    同じ会話内で類似する領収書を処理済みでも省略しないでください。
                     """,
             generateOutputSchema = true)
     public ProcessingWorkflowResponse getProcessingWorkflow() {
