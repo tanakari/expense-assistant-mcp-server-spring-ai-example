@@ -17,10 +17,7 @@ public class ClassificationRulesTool {
     @McpTool(
             name = "get_expense_classification_rules",
             description = """
-                    経費科目を判定するためのルールを取得します。
-                    経費科目を判定するときに使用してください。
-                    取得したルールを業務上の基準とし、ナレッジより優先して経費科目を判定してください。
-                    判断に必要な情報が不足している場合は、推測で確定せずユーザーへ確認してください。
+                    経費科目を判定するための業務ルールを取得します。
                     """,
             generateOutputSchema = true)
     public ClassificationRulesResponse getClassificationRules() {

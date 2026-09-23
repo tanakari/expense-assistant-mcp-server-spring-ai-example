@@ -20,9 +20,9 @@ spring:
           completion: false
 
         instructions: >-
-          Provides expense processing workflows, classification rules,
-          classification knowledge, and expense application registration.
-          Call get_expense_processing_workflow first when processing expenses.
+          Provides tools for retrieving an expense processing workflow and
+          classification rules, retrieving and registering classification
+          knowledge, and performing mock expense registration.
 
         streamable-http:
           mcp-endpoint: /mcp
